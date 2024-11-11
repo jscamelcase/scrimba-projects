@@ -8,10 +8,10 @@ const deleteBtn = document.getElementById("delete-btn");
 
 let leadsFromLocalStorage = JSON.parse(localStorage.getItem("myLeads"));
 if (leadsFromLocalStorage) myLeads = leadsFromLocalStorage;
-renderLeads();
+render(myLeads);
 
 //this function renders the leads
-function renderLeads() {
+function render(leads) {
   //clear the list items on every render
   ulEl.innerHTML = "";
 
@@ -21,9 +21,9 @@ function renderLeads() {
 
     // Create a new <a> element
     const a = document.createElement("a");
-    a.href = myLeads[i];
+    a.href = leads[i];
     a.target = "_blank";
-    a.textContent = myLeads[i]; //Sets the tect content, avoiding HTML parsi ng (symbols => to characters)
+    a.textContent = leads[i]; //Sets the tect content, avoiding HTML parsi ng (symbols => to characters)
     li.appendChild(a);
     ulEl.appendChild(li);
   }
@@ -32,12 +32,12 @@ function renderLeads() {
 deleteBtn.addEventListener("dblclick", function () {
   localStorage.clear();
   myLeads = [];
-  renderLeads();
+  render(myLeads);
 });
 
 inputBtn.addEventListener("click", function () {
   myLeads.push(inputEl.value);
   inputEl.value = "";
   localStorage.setItem("myLeads", JSON.stringify(myLeads));
-  renderLeads();
+  render(myLeads);
 });
