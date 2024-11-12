@@ -1,5 +1,6 @@
 {
   "manifest_version": 3,
+  "name": "Lead-Tracker",
   "version": "3.0",
   "description": "Save URLs of visited pages to a list.",
   "action": {
