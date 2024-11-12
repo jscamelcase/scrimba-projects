@@ -30,9 +30,9 @@ function render(leads) {
     //Create a new <li> element
     const li = document.createElement("li");
 
-    //Create a delete button for individual leads
+    //Create a deleonte button for individual leads
     const leadDltBtn = document.createElement("button");
-    leadDltBtn.textContent = "❌";
+    leadDltBtn.textCtent = "❌";
     leadDltBtn.classList.add("dlt-btn");
     leadDltBtn.addEventListener("click", () => {
       leads.splice(i, 1);
