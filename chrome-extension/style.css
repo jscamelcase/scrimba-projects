@@ -21,6 +21,11 @@ button {
   font-weight: bold;
 }
 
+button.dlt-btn {
+  background: white;
+  border: none;
+}
+
 #delete-btn {
   background: white;
   color: #5f9341;

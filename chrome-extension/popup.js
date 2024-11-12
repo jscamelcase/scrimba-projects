@@ -30,12 +30,22 @@ function render(leads) {
     //Create a new <li> element
     const li = document.createElement("li");
 
+    //Create a delete button for individual leads
+    const leadDltBtn = document.createElement("button");
+    leadDltBtn.textContent = "❌";
+    leadDltBtn.classList.add("dlt-btn");
+    leadDltBtn.addEventListener("click", () => {
+      leads.splice(i, 1);
+      render(leads);
+    });
+
     // Create a new <a> element
     const a = document.createElement("a");
     a.href = leads[i];
     a.target = "_blank";
-    a.textContent = leads[i]; //Sets the tect content, avoiding HTML parsi ng (symbols => to characters)
+    a.textContent = leads[i]; //Sets the text content, avoiding HTML parsi ng (symbols => to characters)
     li.appendChild(a);
+    li.appendChild(leadDltBtn);
     ulEl.appendChild(li);
   }
 }
