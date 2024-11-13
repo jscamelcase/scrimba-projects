@@ -1,0 +1,67 @@
+/* CSS Reset */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: black;
+}
+
+main {
+  width: 600px;
+  margin: 20px auto;
+  background: rgb(38, 4, 205);
+  border: 2px solid white;
+  border-radius: 10px;
+}
+
+.number-to-text {
+  margin-bottom: 20px;
+  line-height: 2rem;
+  font-size: 1.8rem;
+  width: 80px;
+  padding: 20px 0;
+  text-align: center;
+  background-color: rgb(38, 4, 205);
+  border: 5px purple solid;
+  color: white;
+  font-weight: bold;
+}
+
+h1 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+/* Hide number input increment buttons in Chrome, Safari, and Edge */
+input.number-to-text::-webkit-outer-spin-button,
+input.number-to-text::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Hide number input increment buttons in Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+#btn-convert {
+  padding: 10px 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: purple;
+}
