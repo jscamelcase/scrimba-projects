@@ -65,3 +65,30 @@ input[type="number"] {
   font-weight: bold;
   color: purple;
 }
+
+.output-container {
+  background-color: lightgray;
+  padding: 20px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 400px;
+}
+
+.item-container {
+  background-color: white;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.item-title {
+  margin-bottom: 10px;
+}
+
+.item-container p,
+.item-container h2 {
+  color: rgb(125, 125, 125);
+}
