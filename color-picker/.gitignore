@@ -1,0 +1,8 @@
+
+.codegpt
+npm-debug.log
+yarn.lock 
+package-lock.json 
+.npmrc 
+.yarnrc 
+node_modules/
