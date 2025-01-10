@@ -1,0 +1,49 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", serif;
+  font-size: 62.5%;
+}
+
+.container {
+  margin: 0 auto;
+  width: 80%;
+}
+
+.header {
+  padding: 5rem 0;
+  position: relative;
+  color: white;
+  z-index: 1;
+}
+
+.header::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  background-image: url("./images/THJJRUhNlEc.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+
+.header__title-container {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 800;
+}
+
+.header__title {
+  font-size: 4.279rem;
+}
