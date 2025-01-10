@@ -15,15 +15,14 @@ function renderMovieItem(itemId) {
               <div class="movie-listing__text-container">
                   <div class="movie-listing__heading-container">
                       <h3 class="movie-listing__title">${movie.Title}</h3>
-                      <span class="movie-listing__star">⭐️</span>
-                      <span class="movie-listing__rating">${
+                      <span class="movie-listing__rating">⭐${
                         movie.Ratings[0].Value.split("/")[0]
                       }</span>
                   </div>
                   <div class="movie-listing__meta-data">
                       <p class="movie-listing__time">${movie.Runtime}</p>
                       <p class="movie-listing__category">${movie.Genre}</p>
-                      <button id="${itemId}"class="movie-listing__watchlist">Watchlist</button>
+                      <button id="${itemId}" class="movie-listing__watchlist"><img src="./images/Icon.png" alt="plus sign">Watchlist</button>
                   </div>
                   <p class="movie-listing__description">${movie.Plot}</p>
               </div>
