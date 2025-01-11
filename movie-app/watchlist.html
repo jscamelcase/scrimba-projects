@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
-    <script src="./script.js" defer></script>
+    <script src="./script-watchlist.js" defer></script>
     <title>Movie Watchlist</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,30 +18,13 @@
       <div class="header__title-container container">
         <h1 class="header__title">My Watchlist</h1>
         <nav class="header__link-container">
-          <a class="header__link" href="#">Search for movies</a>
+          <a class="header__link" href="./index.html">Search for movies</a>
         </nav>
-      </div>
-      <div class="header__search-container">
-        <img class="header__search-icon" src="./images/Mag Glass.png" />
-        <input
-          class="header__search-input"
-          type="text"
-          placeholder="Blade Runner"
-        />
-        <button class="header__search-button" aria-label="Search for movies">
-          Search
-        </button>
       </div>
     </header>
     <main>
-      <section class="results">
-        <div class="results__display container">
-          <img
-            class="results__placeholder-img"
-            src="./images/no-data-initial.png"
-            alt="start exploring"
-          />
-        </div>
+      <section class="watchlist-results">
+        <div class="watchlist-results__display container"></div>
       </section>
     </main>
   </body>

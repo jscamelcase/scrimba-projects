@@ -117,15 +117,18 @@ body {
   font-family: "Inter", serif;
 }
 
-.results {
+.results,
+.watchlist-results {
   height: 100%;
 }
 
 main {
   height: 100vh;
+  display: relative;
 }
 
-.results__display {
+.results__display,
+.watchlist-results__display {
   position: relative;
   height: 100%;
   margin-top: 5rem;
@@ -138,6 +141,36 @@ main {
   transform: translate(-50%, -50%);
   height: 9rem;
   width: 14.6rem;
+}
+
+.watchlist-message__container {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 20rem;
+  width: 50rem;
+  text-align: center;
+}
+
+.watchlist__para--light {
+  font-size: 1.8rem;
+  color: #dfdddd;
+  margin-bottom: 20px;
+}
+
+.watchlist__para {
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 2rem;
+  font-weight: bold;
+}
+
+.watchlist__img {
+  padding: 5px 0 0 0;
+  margin-right: 5px;
 }
 
 .movie-listing {

@@ -1,16 +1,27 @@
 const API_KEY = "9fcc666";
-const search = document.querySelector(".header__search-input");
-
-const body = document.querySelector("body");
 const resultsDisplay = document.querySelector(".results__display");
 
 let savedMoviesArray = JSON.parse(localStorage.getItem("savedMovies")) ?? [];
 
-function renderMovieItem(itemId) {
+const watchListDisplay = document.querySelector(".watchlist-results__display");
+console.log(watchListDisplay);
+
+if (savedMoviesArray.length === 0) {
+  watchListDisplay.innerHTML = `
+  <div class="watchlist-message__container">
+            <p class="watchlist__para--light">Your watchlist is looking a little empty.</p>
+            <p class="watchlist__para text-bold text-small"><a href="./index.html" class="watchlist__link"><img class="watchlist__img" src="./images/icon.png"></a>Let's add some movies!</p>
+          </div>
+  `;
+} else {
+  savedMoviesArray.forEach((itemId) => renderMovieItem(itemId, "Watchlist"));
+}
+
+function renderMovieItem(itemId, page = "MovieFinder") {
   fetch(`http://www.omdbapi.com/?apikey=${API_KEY}&i=${itemId}`)
     .then((res) => res.json())
     .then((movie) => {
-      resultsDisplay.innerHTML += `
+      watchListDisplay.innerHTML += `
           <div class="movie-listing">
               <img class="movie-listing__img" src="${movie.Poster}">
               <div class="movie-listing__text-container">
@@ -23,7 +34,12 @@ function renderMovieItem(itemId) {
                   <div class="movie-listing__meta-data">
                       <p class="movie-listing__time">${movie.Runtime}</p>
                       <p class="movie-listing__category">${movie.Genre}</p>
-                      <button id="${itemId}" class="movie-listing__watchlist"><img src="./images/Icon.png" alt="plus sign">Watchlist</button>
+                      <button id="${itemId}" class="movie-listing__watchlist"><img src="${
+        page === "Watchlist"
+          ? "./images/negative-symb.png"
+          : "./images/Icon.png"
+      }" alt="plus sign">
+                      ${page === "Watchlist" ? "Remove" : "Watchlist"}</button>
                   </div>
                   <p class="movie-listing__description">${movie.Plot}</p>
               </div>
@@ -35,26 +51,14 @@ function renderMovieItem(itemId) {
 //Application Event Listener
 
 document.addEventListener("click", (e) => {
-  if (e.target.classList.contains("header__search-button")) {
-    const searchTerm = search.value;
-    fetch(`http://www.omdbapi.com/?apikey=${API_KEY}&s=${searchTerm}`)
-      .then((res) => res.json())
-      .then((data) => {
-        if (!data.Search) {
-          resultsDisplay.innerHTML =
-            '<p class="results-none">Unable to find what you\'re looking for. Please try another search.</p>';
-        } else {
-          resultsDisplay.innerHTML = "";
-        }
-        data.Search.forEach((item) => {
-          renderMovieItem(item.imdbID);
-        });
-      });
-  } else if (
+  if (
     e.target.classList.contains("movie-listing__watchlist") &&
-    !savedMoviesArray.includes(e.target.id)
+    savedMoviesArray.includes(e.target.id)
   ) {
-    savedMoviesArray.push(e.target.id);
+    const savedIndex = savedMoviesArray.indexOf(e.target.id);
+    savedMoviesArray.splice(savedIndex, 1);
+    watchListDisplay.innerHTML = "";
+    savedMoviesArray.forEach((itemId) => renderMovieItem(itemId, "Watchlist"));
     localStorage.setItem("savedMovies", JSON.stringify(savedMoviesArray));
   }
 });
